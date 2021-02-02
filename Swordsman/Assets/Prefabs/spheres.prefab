@@ -79,9 +79,8 @@ MonoBehaviour:
   _sphereHalves:
   - {fileID: 7932183241882081920}
   - {fileID: 2041150542275046555}
-  _target: {fileID: 0}
-  _speedMove: 0
   _foresePush: 1000
+  _timeBeforeDestroy: 0.05
 --- !u!1 &8253057721037357160
 GameObject:
   m_ObjectHideFlags: 0

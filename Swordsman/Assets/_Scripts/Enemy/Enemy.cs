@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
     private SphereHalves[] _sphereHalves;
 
     [SerializeField]
-    private float _foresePush;
+    private float _foresePush, _timeBeforeDestroy;
 
     void Start()
     {
@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
             {
                 halves.Push(direction, _foresePush);
             }
-            Destroy(gameObject, 0.05f);
+            Destroy(gameObject, _timeBeforeDestroy);
             enabled = false;
 
         }

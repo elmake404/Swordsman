@@ -7,9 +7,11 @@ public class Plyer : MonoBehaviour
     private Camera _cam;
     private Vector3 _startMousePos, _currenMousePos, _directionMove;
     [SerializeField]
-    private float _speedRotation, _speedMove;
+    private float _speedRotationMax, _speedMoveMax, _rotationAcceleration;
+    private float _speedRotation;
     void Start()
     {
+        _speedRotation = _speedRotationMax;
         _cam = Camera.main;
     }
 
@@ -32,7 +34,7 @@ public class Plyer : MonoBehaviour
 
                 _directionMove.x = directionMose.x;
                 _directionMove.z = directionMose.y;
-                transform.position += _directionMove * _speedMove;
+                transform.position += _directionMove * _speedMoveMax;
             }
             //Debug.Log((_currenMousePos - _startMousePos));
         }
@@ -40,6 +42,14 @@ public class Plyer : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        _speedRotation = Mathf.Lerp(_speedRotation,_speedRotationMax, _rotationAcceleration);
         transform.Rotate(Vector3.up * _speedRotation);
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.tag =="Rock")
+        {
+            _speedRotation = 0;
+        }
     }
 }
