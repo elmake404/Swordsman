@@ -46,6 +46,10 @@ public class Enemy : MonoBehaviour
             gameObject.layer = 11;
 
             IsActive = true;
+            if (tag == "Rock")
+            {
+                transform.SetParent(null);
+            }
         }
     }
 }
