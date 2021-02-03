@@ -19,6 +19,7 @@ public class EnemyTower : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.position = Vector3.MoveTowards(transform.position, _target.position, _speedMove);
+        if (_target != null)
+            transform.position = Vector3.MoveTowards(transform.position, _target.position, _speedMove);
     }
 }

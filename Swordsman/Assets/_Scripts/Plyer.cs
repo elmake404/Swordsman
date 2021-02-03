@@ -52,4 +52,14 @@ public class Plyer : MonoBehaviour
             _speedRotation = 0;
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        var Enemy = other.GetComponent<Enemy>();
+
+        if (Enemy != null)
+        {
+            Destroy(gameObject);
+        }
+
+    }
 }
