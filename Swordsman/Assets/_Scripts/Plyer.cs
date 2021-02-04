@@ -16,6 +16,7 @@ public class Plyer : MonoBehaviour
     [SerializeField]
     [Range(0,100)]
     private float _speedLossPercentage;
+    [SerializeField]
     private float _speedRotation;
     private void Awake()
     {
@@ -49,7 +50,6 @@ public class Plyer : MonoBehaviour
                 _directionMove.z = directionMose.y;
                 transform.position += _directionMove * _speedMoveMax;
             }
-            //Debug.Log((_currenMousePos - _startMousePos));
         }
 
     }
@@ -62,7 +62,8 @@ public class Plyer : MonoBehaviour
     {
         if (collision.collider.tag =="Rock")
         {
-            _speedRotation -= (_speedRotationMax/100)*_speedLossPercentage;
+            _speedRotation =  _speedRotationMax - ((_speedRotationMax/100)*_speedLossPercentage);
+            Debug.Log(_speedRotation);
         }
     }
     private void OnTriggerEnter(Collider other)
