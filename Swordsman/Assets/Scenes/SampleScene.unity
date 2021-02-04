@@ -412,6 +412,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 853525503}
   _smoothTime: 0.03
+  Namber: 0
 --- !u!1001 &1039451992741025408
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -566,7 +567,7 @@ PrefabInstance:
     - target: {fileID: 8835543054234163478, guid: 783b5f1cb9e14f845b810156e97a81ed,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 783b5f1cb9e14f845b810156e97a81ed, type: 3}

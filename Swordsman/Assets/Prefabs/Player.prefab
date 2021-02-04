@@ -188,9 +188,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8a0df0c0fde2614e847daf918397775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speedRotationMax: 0
-  _speedMoveMax: 0
-  _rotationAcceleration: 0
+  _speedRotationMax: 8
+  _speedMoveMax: 0.1
+  _rotationAcceleration: 0.01
+  _speedLossPercentage: 100
 --- !u!65 &8879031047744220508
 BoxCollider:
   m_ObjectHideFlags: 0

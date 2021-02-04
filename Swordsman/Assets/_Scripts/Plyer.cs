@@ -4,11 +4,23 @@ using UnityEngine;
 
 public class Plyer : MonoBehaviour
 {
+    public static Plyer Player;
+
+    public delegate void NamberCill(int namber);
+    public event NamberCill Cill;
+
     private Camera _cam;
     private Vector3 _startMousePos, _currenMousePos, _directionMove;
     [SerializeField]
     private float _speedRotationMax, _speedMoveMax, _rotationAcceleration;
+    [SerializeField]
+    [Range(0,100)]
+    private float _speedLossPercentage;
     private float _speedRotation;
+    private void Awake()
+    {
+        Player = this;
+    }
     void Start()
     {
         _speedRotation = _speedRotationMax;
@@ -19,6 +31,7 @@ public class Plyer : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            Cill?.Invoke(+1);
             _startMousePos = _cam.ScreenToViewportPoint(Input.mousePosition);
         }
         else if (Input.GetMouseButton(0))
@@ -49,7 +62,7 @@ public class Plyer : MonoBehaviour
     {
         if (collision.collider.tag =="Rock")
         {
-            _speedRotation = 0;
+            _speedRotation -= (_speedRotationMax/100)*_speedLossPercentage;
         }
     }
     private void OnTriggerEnter(Collider other)
