@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     private SphereHalves[] _sphereHalves;
     [SerializeField]
     private Rigidbody _rbMain;
+    private EnemyTower _tower;
 
     [SerializeField]
     private float _foresePush, _timeBeforeDestroy;
@@ -24,7 +25,6 @@ public class Enemy : MonoBehaviour
             _rbMain.AddForce(Vector3.down * 100);
         }
     }
-
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.tag == "Sword" && IsActive)
@@ -37,6 +37,8 @@ public class Enemy : MonoBehaviour
                 halves.Push(direction, _foresePush);
             }
 
+            RemovalFromTower();
+
             Destroy(gameObject, _timeBeforeDestroy);
             enabled = false;
         }
@@ -48,8 +50,21 @@ public class Enemy : MonoBehaviour
             IsActive = true;
             if (tag == "Rock")
             {
+                RemovalFromTower();
                 transform.SetParent(null);
             }
         }
+    }
+    private void RemovalFromTower()
+    {
+        if (_tower!=null)
+        {
+            _tower.RemoveSpher(gameObject);
+            _tower = null;
+        }
+    }
+    public void Initialization(EnemyTower tower)
+    {
+        _tower = tower;
     }
 }

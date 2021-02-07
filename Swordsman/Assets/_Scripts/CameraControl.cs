@@ -11,7 +11,6 @@ public class CameraControl : MonoBehaviour
     private float _smoothTime,Namber;
     void Start()
     {
-        Plyer.Player.Cill += blalbla;
         _offSet = _target.position - transform.position;
     }
 
@@ -20,5 +19,4 @@ public class CameraControl : MonoBehaviour
         if(_target!=null)
         transform.position = Vector3.SmoothDamp(transform.position, _target.position - _offSet, ref _velocity, _smoothTime*Time.deltaTime);
     }
-    public void blalbla(int namber) => Namber += namber;
 }

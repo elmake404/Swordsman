@@ -4,22 +4,43 @@ using UnityEngine;
 
 public class EnemyTower : MonoBehaviour
 {
+    private List<GameObject> _enemies = new List<GameObject>();
     [SerializeField]
-    private Transform _target;
+    private List<bool> _listEnemies;
     [SerializeField]
-    private List<Enemy> _enemies;
+    private Enemy _spher, _spherRock;
 
-    [SerializeField]
-    private float _speedMove;
     void Start()
     {
-        
+        SpawnSpher();
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    private void SpawnSpher()
     {
-        if (_target != null)
-            transform.position = Vector3.MoveTowards(transform.position, _target.position, _speedMove);
+        Vector3 PosSpawn = transform.position;
+        for (int i = 0; i < _listEnemies.Count; i++)
+        {
+            Enemy SpawnSpher = _listEnemies[i] ? _spherRock : _spher;
+            Enemy Spher = Instantiate(SpawnSpher,PosSpawn,SpawnSpher.transform.rotation);
+            Spher.transform.SetParent(transform);
+            Spher.Initialization(this);
+            _enemies.Add(Spher.gameObject);
+            PosSpawn.y += 2;
+        }
+    }
+    public void RemoveSpher(GameObject SpherObj)
+    {
+        _enemies.Remove(SpherObj);
+
+        if (_enemies.Count<=0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.black;
+        Gizmos.DrawWireSphere(transform.position, _spher.transform.localScale.z/2);
     }
 }

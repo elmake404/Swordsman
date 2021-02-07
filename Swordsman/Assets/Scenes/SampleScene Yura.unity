@@ -167,7 +167,7 @@ PrefabInstance:
     - target: {fileID: 1409425975570185873, guid: 163c5ca0a53958a4a83e3f74a5ad0bf4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1409425975570185873, guid: 163c5ca0a53958a4a83e3f74a5ad0bf4,
         type: 3}
@@ -206,18 +206,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 163c5ca0a53958a4a83e3f74a5ad0bf4, type: 3}
---- !u!114 &192769443 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 628806691043317633, guid: 783b5f1cb9e14f845b810156e97a81ed,
-    type: 3}
-  m_PrefabInstance: {fileID: 1546075070}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bedbda83a86bf0c4ca9e0684102faf54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &193052323
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -263,7 +251,7 @@ PrefabInstance:
     - target: {fileID: 1409425975570185873, guid: 163c5ca0a53958a4a83e3f74a5ad0bf4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1409425975570185873, guid: 163c5ca0a53958a4a83e3f74a5ad0bf4,
         type: 3}
@@ -353,7 +341,7 @@ PrefabInstance:
     - target: {fileID: 1409425975570185873, guid: 163c5ca0a53958a4a83e3f74a5ad0bf4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1409425975570185873, guid: 163c5ca0a53958a4a83e3f74a5ad0bf4,
         type: 3}
@@ -473,6 +461,11 @@ PrefabInstance:
         type: 3}
       propertyPath: _speedMove
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3057358779781796718, guid: 783b5f1cb9e14f845b810156e97a81ed,
+        type: 3}
+      propertyPath: _activationZoneRadius
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6207930576298778043, guid: 783b5f1cb9e14f845b810156e97a81ed,
         type: 3}
@@ -671,17 +664,22 @@ PrefabInstance:
         type: 3}
       propertyPath: _enemies.Array.data[3]
       value: 
-      objectReference: {fileID: 1392868216}
+      objectReference: {fileID: 0}
     - target: {fileID: 3057358779781796718, guid: 783b5f1cb9e14f845b810156e97a81ed,
         type: 3}
       propertyPath: _enemies.Array.data[4]
       value: 
-      objectReference: {fileID: 1392868216}
+      objectReference: {fileID: 0}
     - target: {fileID: 3057358779781796718, guid: 783b5f1cb9e14f845b810156e97a81ed,
         type: 3}
       propertyPath: _enemies.Array.data[1]
       value: 
       objectReference: {fileID: 1221350209}
+    - target: {fileID: 3057358779781796718, guid: 783b5f1cb9e14f845b810156e97a81ed,
+        type: 3}
+      propertyPath: _activationZoneRadius
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6207930576298778043, guid: 783b5f1cb9e14f845b810156e97a81ed,
         type: 3}
       propertyPath: m_IsActive
@@ -744,7 +742,7 @@ PrefabInstance:
     - target: {fileID: 1409425975570185873, guid: 163c5ca0a53958a4a83e3f74a5ad0bf4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1409425975570185873, guid: 163c5ca0a53958a4a83e3f74a5ad0bf4,
         type: 3}
@@ -770,11 +768,6 @@ PrefabInstance:
         type: 3}
       propertyPath: _speedMove
       value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1537724732072612808, guid: 163c5ca0a53958a4a83e3f74a5ad0bf4,
-        type: 3}
-      propertyPath: _foresePush
-      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 1784720511941600299, guid: 163c5ca0a53958a4a83e3f74a5ad0bf4,
         type: 3}
@@ -957,6 +950,11 @@ PrefabInstance:
       propertyPath: _speedMove
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 3057358779781796718, guid: 783b5f1cb9e14f845b810156e97a81ed,
+        type: 3}
+      propertyPath: _activationZoneRadius
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6207930576298778043, guid: 783b5f1cb9e14f845b810156e97a81ed,
         type: 3}
       propertyPath: m_IsActive
@@ -1045,6 +1043,11 @@ PrefabInstance:
         type: 3}
       propertyPath: _speedMove
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3057358779781796718, guid: 783b5f1cb9e14f845b810156e97a81ed,
+        type: 3}
+      propertyPath: _activationZoneRadius
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8835543054234163478, guid: 783b5f1cb9e14f845b810156e97a81ed,
         type: 3}
@@ -1226,7 +1229,7 @@ PrefabInstance:
     - target: {fileID: 1409425975570185873, guid: 163c5ca0a53958a4a83e3f74a5ad0bf4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1409425975570185873, guid: 163c5ca0a53958a4a83e3f74a5ad0bf4,
         type: 3}
@@ -1347,6 +1350,11 @@ PrefabInstance:
       propertyPath: _speedMove
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 3057358779781796718, guid: 783b5f1cb9e14f845b810156e97a81ed,
+        type: 3}
+      propertyPath: _activationZoneRadius
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6207930576298778043, guid: 783b5f1cb9e14f845b810156e97a81ed,
         type: 3}
       propertyPath: m_IsActive
@@ -1364,18 +1372,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 783b5f1cb9e14f845b810156e97a81ed, type: 3}
---- !u!114 &1392868216 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 628806691043317633, guid: 783b5f1cb9e14f845b810156e97a81ed,
-    type: 3}
-  m_PrefabInstance: {fileID: 515055497}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bedbda83a86bf0c4ca9e0684102faf54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1546075070
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1462,17 +1458,22 @@ PrefabInstance:
         type: 3}
       propertyPath: _enemies.Array.data[3]
       value: 
-      objectReference: {fileID: 192769443}
+      objectReference: {fileID: 0}
     - target: {fileID: 3057358779781796718, guid: 783b5f1cb9e14f845b810156e97a81ed,
         type: 3}
       propertyPath: _enemies.Array.data[4]
       value: 
-      objectReference: {fileID: 192769443}
+      objectReference: {fileID: 0}
     - target: {fileID: 3057358779781796718, guid: 783b5f1cb9e14f845b810156e97a81ed,
         type: 3}
       propertyPath: _enemies.Array.data[1]
       value: 
       objectReference: {fileID: 949691979}
+    - target: {fileID: 3057358779781796718, guid: 783b5f1cb9e14f845b810156e97a81ed,
+        type: 3}
+      propertyPath: _activationZoneRadius
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6207930576298778043, guid: 783b5f1cb9e14f845b810156e97a81ed,
         type: 3}
       propertyPath: m_IsActive
@@ -1629,7 +1630,7 @@ PrefabInstance:
     - target: {fileID: 1409425975570185873, guid: 163c5ca0a53958a4a83e3f74a5ad0bf4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1409425975570185873, guid: 163c5ca0a53958a4a83e3f74a5ad0bf4,
         type: 3}
@@ -1920,6 +1921,11 @@ PrefabInstance:
       propertyPath: _speedMove
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 3057358779781796718, guid: 783b5f1cb9e14f845b810156e97a81ed,
+        type: 3}
+      propertyPath: _activationZoneRadius
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8835543054234163478, guid: 783b5f1cb9e14f845b810156e97a81ed,
         type: 3}
       propertyPath: m_Name
@@ -1998,16 +2004,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 2606960298543542394, guid: a63acb3d546d30b489a6be6817296557,
-        type: 3}
-      propertyPath: _speedRotationMax
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 2606960298543542394, guid: a63acb3d546d30b489a6be6817296557,
-        type: 3}
-      propertyPath: _speedLossPercentage
-      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 8879031047744217761, guid: a63acb3d546d30b489a6be6817296557,
         type: 3}
