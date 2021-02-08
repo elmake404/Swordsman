@@ -2,28 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerMove : MonoBehaviour
 {
-    public static Player Instance;
+    public static Transform PlayerTransform;
 
+    [SerializeField]
+    private Rigidbody _rbMain;
     private Camera _cam;
     private Vector3 _startMousePos, _currenMousePos, _directionMove;
-    [SerializeField]
-    private float _speedRotationMax, _speedMoveMax, _rotationAcceleration;
-    [SerializeField]
-    [Range(0,100)]
-    private float _speedLossPercentage;
-    [SerializeField]
-    private float _speedRotation;
+    private Vector3 _directionRotation = Vector3.up;
 
+    [SerializeField]
+    private float _speedRotationMax, _rotationAcceleration, _speedMoveMax;
+    [SerializeField]
+    [Range(0, 100)]
+    private float _speedLossPercentage;
+    private float _speedRotation;
     private void Awake()
     {
-        Instance = this;
+        PlayerTransform = transform;
     }
     private void Start()
     {
-        _speedRotation = _speedRotationMax;
         _cam = Camera.main;
+        _speedRotation = _speedRotationMax;
     }
 
     private void Update()
@@ -39,7 +41,7 @@ public class Player : MonoBehaviour
                 _startMousePos = _cam.ScreenToViewportPoint(Input.mousePosition);
             }
             _currenMousePos = _cam.ScreenToViewportPoint(Input.mousePosition);
-            if ((_currenMousePos - _startMousePos).sqrMagnitude>0.0001f)
+            if ((_currenMousePos - _startMousePos).sqrMagnitude > 0.0001f)
             {
                 Vector3 directionMose = (_currenMousePos - _startMousePos).normalized;
 
@@ -49,26 +51,20 @@ public class Player : MonoBehaviour
             }
         }
     }
+
     private void FixedUpdate()
     {
-        _speedRotation = Mathf.Lerp(_speedRotation,_speedRotationMax, _rotationAcceleration);
-        transform.Rotate(Vector3.up * _speedRotation);
+        _speedRotation = Mathf.Lerp(_speedRotation, _speedRotationMax, _rotationAcceleration);
+        transform.Rotate(_directionRotation * _speedRotation);
+        //_rbMain.velocity = Vector3.zero;
     }
-    private void OnCollisionEnter(Collision collision)
+    public void SpeedCut()
     {
-        if (collision.collider.tag =="Rock")
-        {
-            _speedRotation =  _speedRotationMax - ((_speedRotationMax/100)*_speedLossPercentage);
-        }
+        _speedRotation = _speedRotationMax - ((_speedRotationMax / 100) * _speedLossPercentage);
     }
-    private void OnTriggerEnter(Collider other)
+    public void ChangeDirectionRotation()
     {
-        var Enemy = other.GetComponent<Enemy>();
-
-        if (Enemy != null)
-        {
-            Destroy(gameObject);
-        }
-
+        _directionRotation.y *= -1;
     }
+
 }

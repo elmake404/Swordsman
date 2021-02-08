@@ -21,7 +21,7 @@ public class TowerMove : MonoBehaviour
     void Start()
     {
         _sqrActivationZoneRadius = (_activationZoneRadius * _activationZoneRadius);
-        _target = Player.Instance.transform;
+        _target = PlayerMove.PlayerTransform;
         _agent.updatePosition = false;
         _agent.updateRotation = false;
     }

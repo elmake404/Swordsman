@@ -1,5 +1,46 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!54 &6747043746846116909
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181399266377498679}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &3882049296642607570
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181399266377498679}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7478132, y: 1.7885065, z: 1}
+  m_Center: {x: -0.11224386, y: 0.6287999, z: 1.8127522e-16}
+--- !u!114 &1907750605139213997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181399266377498679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cdccc99734030a4e96ebb4deabc00e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8879031047483680917
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,6 +53,8 @@ GameObject:
   - component: {fileID: 8879031047483680921}
   - component: {fileID: 8879031047483680922}
   - component: {fileID: 8879031047483680923}
+  - component: {fileID: 430528444195772805}
+  - component: {fileID: 6764133901089874844}
   m_Layer: 10
   m_Name: Sword
   m_TagString: Sword
@@ -91,8 +134,37 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.058739606, y: 0.7362786, z: 2.8991177}
-  m_Center: {x: 0.0027502775, y: 0.018105973, z: 0.9495603}
+  m_Size: {x: 0.058739606, y: 0.7362786, z: 2.1463878}
+  m_Center: {x: 0.0027502775, y: 0.018105973, z: 1.3259238}
+--- !u!54 &430528444195772805
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8879031047483680917}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!114 &6764133901089874844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8879031047483680917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01f5948703b72f547b519d985459965e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 5979204046865870217}
 --- !u!1 &8879031047744220509
 GameObject:
   m_ObjectHideFlags: 0
@@ -102,9 +174,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8879031047744217761}
-  - component: {fileID: 2606960298543542394}
-  - component: {fileID: 8879031047744220508}
-  - component: {fileID: 2122004188102316555}
+  - component: {fileID: 5979204046865870217}
+  - component: {fileID: 2511205728190735117}
+  - component: {fileID: 7603918061041275954}
   m_Layer: 0
   m_Name: Player Yura
   m_TagString: Untagged
@@ -128,7 +200,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2606960298543542394
+--- !u!114 &5979204046865870217
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,28 +209,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 8879031047744220509}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8a0df0c0fde2614e847daf918397775, type: 3}
+  m_Script: {fileID: 11500000, guid: 05657be6b74fddb4bac40e931166a48d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rbMain: {fileID: 7603918061041275954}
   _speedRotationMax: 20
+  _rotationAcceleration: 0.1
   _speedMoveMax: 0.1
-  _rotationAcceleration: 0.01
   _speedLossPercentage: 25
-  _speedRotation: 0
---- !u!65 &8879031047744220508
-BoxCollider:
+--- !u!136 &2511205728190735117
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8879031047744220509}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &2122004188102316555
+  m_Radius: 0.37088782
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.029999971, z: -0.12911218}
+--- !u!54 &7603918061041275954
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -170,9 +243,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1001 &32928553508077499
 PrefabInstance:
@@ -243,6 +316,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c17729dee0400e344881806648ce832a, type: 3}
+--- !u!1 &181399266377498679 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 211820862412849036, guid: c17729dee0400e344881806648ce832a,
+    type: 3}
+  m_PrefabInstance: {fileID: 32928553508077499}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &706965117753023117 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 701252432190121270, guid: c17729dee0400e344881806648ce832a,
