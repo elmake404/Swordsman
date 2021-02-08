@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private SphereHalves[] _sphereHalves;
     [SerializeField]
+    private ParticleSystem _bloodPS;
+    [SerializeField]
     private Rigidbody _rbMain;
     private EnemyTower _tower;
 
@@ -31,16 +33,14 @@ public class Enemy : MonoBehaviour
         {
             gameObject.layer = 12;
             Vector3 direction = (transform.position - collision.GetContact(0).point).normalized;
+
             foreach (var halves in _sphereHalves)
             {
                 halves.gameObject.SetActive(true);
                 halves.Push(direction, _foresePush);
             }
 
-            RemovalFromTower();
-
-            Destroy(gameObject, _timeBeforeDestroy);
-            enabled = false;
+            Destruction();
         }
 
         if (collision.gameObject.layer == 9)
@@ -57,10 +57,26 @@ public class Enemy : MonoBehaviour
     }
     private void RemovalFromTower()
     {
-        if (_tower!=null)
+        if (_tower != null)
         {
             _tower.RemoveSpher(gameObject);
             _tower = null;
+        }
+    }
+    private void Destruction()
+    {
+        PlayBlood();
+        RemovalFromTower();
+        Destroy(gameObject, _timeBeforeDestroy);
+        enabled = false;
+    }
+    private void PlayBlood()
+    {
+        if (_bloodPS != null)
+        {
+            _bloodPS.transform.SetParent(null);
+            _bloodPS.Play();
+            Destroy(_bloodPS, 1);
         }
     }
     public void Initialization(EnemyTower tower)

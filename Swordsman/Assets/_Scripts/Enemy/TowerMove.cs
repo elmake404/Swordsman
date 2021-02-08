@@ -28,13 +28,16 @@ public class TowerMove : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (_target != null && _isActivation)
-            MoveTower();
-
-        if (!_isActivation && _sqrActivationZoneRadius >= (_target.position - transform.position).sqrMagnitude)
+        if (_target != null)
         {
-            _isActivation = true;
+            if (_isActivation) MoveTower();                
+            else if (!_isActivation && _sqrActivationZoneRadius >= (_target.position - transform.position).sqrMagnitude)
+            {
+                _isActivation = true;
+            }
+
         }
+
     }
 
     private void MoveTower()
