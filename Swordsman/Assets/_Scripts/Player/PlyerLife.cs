@@ -10,5 +10,9 @@ public class PlyerLife : MonoBehaviour
         {
             Destroy(transform.parent.gameObject);
         }
+        if (other.tag == "Coin")
+        {
+            Destroy(other.gameObject);
+        }
     }
 }
