@@ -8,18 +8,38 @@ public class Gun : MonoBehaviour
     private Shell _shell;
     [SerializeField]
     private Transform _shootPos;
+    private Transform _target;
 
     [SerializeField]
-    private float _timeShoot;
+    private float _speedRotation,_timeShoot, _activationZoneRadius;
+    private float _sqrActivationZoneRadius , _timeShootСhanging;
 
-    void Start()
+
+    private void Start()
     {
-        StartCoroutine(Fire());   
+        _target = PlayerMove.PlayerTransform;
+        _sqrActivationZoneRadius = (_activationZoneRadius * _activationZoneRadius);
+
+        //StartCoroutine(Fire());
     }
 
-    void Update()
+    private void FixedUpdate()
     {
-        
+        if (_target!=null)
+        {
+            if (_sqrActivationZoneRadius >= (_target.position - transform.position).sqrMagnitude)
+            {
+                if (RotationGan()&& _timeShootСhanging<=0)
+                {
+                    Instantiate(_shell, _shootPos.position, _shootPos.rotation);
+                    _timeShootСhanging = _timeShoot;
+                }
+            }
+        }
+        if (_timeShootСhanging >= 0)
+        {
+            _timeShootСhanging -= Time.deltaTime;
+        }
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -56,14 +76,27 @@ public class Gun : MonoBehaviour
 
     private IEnumerator Fire()
     {
-        if (_timeShoot<=0)
+        if (_timeShoot <= 0)
         {
             _timeShoot = 1;
         }
         while (true)
         {
-            Instantiate(_shell,_shootPos.position,_shootPos.rotation);
+            Instantiate(_shell, _shootPos.position, _shootPos.rotation);
             yield return new WaitForSeconds(_timeShoot);
         }
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, _activationZoneRadius);
+    }
+    private bool RotationGan()
+    {
+        Vector3 PosTarget = new Vector3(_target.position.x, transform.position.y, _target.position.z);
+        Quaternion rotation = Quaternion.LookRotation(PosTarget - transform.position);
+        transform.rotation = Quaternion.Slerp(transform.rotation,rotation,_speedRotation);
+
+        return (transform.rotation.eulerAngles - rotation.eulerAngles).magnitude <= 1.3f;
     }
 }

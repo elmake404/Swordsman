@@ -42,7 +42,6 @@ public class TowerMove : MonoBehaviour
 
     private void MoveTower()
     {
-        //transform.LookAt(_agent.steeringTarget);
         _agent.SetDestination(_target.position);
         transform.position = Vector3.MoveTowards(transform.position, _agent.steeringTarget, _speedMove);
         _agent.nextPosition = transform.position;

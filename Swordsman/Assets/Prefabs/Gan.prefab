@@ -142,7 +142,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _shell: {fileID: 7618973011234092645, guid: e928932af0872434b83760350889756b, type: 3}
   _shootPos: {fileID: 7898604251025094594}
+  _speedRotation: 0.5
   _timeShoot: 2
+  _activationZoneRadius: 10
 --- !u!54 &1365231891219432541
 Rigidbody:
   m_ObjectHideFlags: 0
