@@ -6,9 +6,7 @@ public class PlyerLife : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        var Enemy = other.GetComponent<Enemy>();
-
-        if (Enemy != null)
+        if (other.tag == "Enemy")
         {
             Destroy(transform.parent.gameObject);
         }

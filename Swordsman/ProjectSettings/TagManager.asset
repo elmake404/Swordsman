@@ -7,6 +7,7 @@ TagManager:
   - Sword
   - Rock
   - Wall
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - EnemySpher
   - EnemySpherDeactivation
   - Player
-  - 
+  - Sheel
   - 
   - 
   - 
