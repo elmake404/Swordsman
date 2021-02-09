@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 1409425975570185873}
   - component: {fileID: 4783313712812473123}
   - component: {fileID: 1537724732072612808}
+  - component: {fileID: 7140905858849668020}
   - component: {fileID: 3677937196610507553}
   - component: {fileID: 9008915159738353953}
   - component: {fileID: 4701628548043522460}
@@ -142,13 +143,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bedbda83a86bf0c4ca9e0684102faf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _delimiter: {fileID: 7140905858849668020}
+  _rbMain: {fileID: 3677937196610507553}
+--- !u!114 &7140905858849668020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784720511941600299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b54a84867f079b48a84df387d9c1dc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bloodPS: {fileID: 6759280291197638199}
   _sphereHalves:
   - {fileID: 7932183241882081920}
   - {fileID: 2041150542275046555}
-  _bloodPS: {fileID: 6759280291197638199}
-  _rbMain: {fileID: 3677937196610507553}
   _foresePush: 1000
-  _timeBeforeDestroy: 0
 --- !u!54 &3677937196610507553
 Rigidbody:
   m_ObjectHideFlags: 0

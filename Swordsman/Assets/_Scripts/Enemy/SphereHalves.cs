@@ -7,7 +7,7 @@ public class SphereHalves : MonoBehaviour
     [SerializeField]
     private Rigidbody _rbMain;
     [SerializeField]
-    private float _timeBeforeDestroy;
+    private float _timeBeforeDestroy =2;
 
     public void Push(Vector3 pushDirection, float forse)
     {

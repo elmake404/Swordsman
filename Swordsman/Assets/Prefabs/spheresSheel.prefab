@@ -89,6 +89,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1409425975570185873}
   - component: {fileID: 7618973011234092645}
+  - component: {fileID: 5376121803812046340}
   - component: {fileID: 4783313712812473123}
   - component: {fileID: 3677937196610507553}
   - component: {fileID: 9008915159738353953}
@@ -129,13 +130,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cef5fd8d4f0d19c46a1b992628d4a51e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _delimiter: {fileID: 5376121803812046340}
+  _bloodPS: {fileID: 6759280291197638199}
+  _speed: 0.3
+  _timeLife: 5
+--- !u!114 &5376121803812046340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784720511941600299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b54a84867f079b48a84df387d9c1dc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bloodPS: {fileID: 6759280291197638199}
   _sphereHalves:
   - {fileID: 7932183241882081920}
   - {fileID: 2041150542275046555}
-  _bloodPS: {fileID: 6759280291197638199}
-  _foresePushHalves: 1000
-  _speed: 0.3
-  _timeLife: 5
+  _foresePush: 1000
 --- !u!135 &4783313712812473123
 SphereCollider:
   m_ObjectHideFlags: 0
