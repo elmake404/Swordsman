@@ -6,13 +6,20 @@ public class PlyerLife : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Enemy")
+        if (other.GetComponent<Delimiter>()!=null)
         {
             Destroy(transform.parent.gameObject);
         }
         if (other.tag == "Coin")
         {
             Destroy(other.gameObject);
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.layer==9)
+        {
+            Debug.Log(123);
         }
     }
 }

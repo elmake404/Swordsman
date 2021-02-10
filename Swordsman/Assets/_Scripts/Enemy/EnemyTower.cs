@@ -4,19 +4,30 @@ using UnityEngine;
 
 public class EnemyTower : MonoBehaviour
 {
+    [SerializeField]
     private List<GameObject> _enemies = new List<GameObject>();
     [SerializeField]
     private List<bool> _listEnemies;
     [SerializeField]
     private Enemy _spher, _spherRock;
+    
 
     void Start()
     {
+        if(_enemies.Count <= 0)
         SpawnSpher();
     }
-
+    [ContextMenu("SpawnSpher")]
     private void SpawnSpher()
     {
+        if (_enemies.Count>0)
+        {
+            for (int i = 0; i < _enemies.Count; i++)
+            {
+                DestroyImmediate(_enemies[i]);
+            }
+            _enemies.Clear();
+        }
         Vector3 PosSpawn = transform.position;
         for (int i = 0; i < _listEnemies.Count; i++)
         {
