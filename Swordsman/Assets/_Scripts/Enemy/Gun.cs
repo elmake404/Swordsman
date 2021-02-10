@@ -59,10 +59,10 @@ public class Gun : MonoBehaviour
 
         return (transform.rotation.eulerAngles - rotation.eulerAngles).magnitude <= 1.3f;
     }
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, _activationZoneRadius);
-    }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.yellow;
+    //    Gizmos.DrawWireSphere(transform.position, _activationZoneRadius);
+    //}
 
 }

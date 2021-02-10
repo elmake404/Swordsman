@@ -46,9 +46,9 @@ public class TowerMove : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, _agent.steeringTarget, _speedMove);
         _agent.nextPosition = transform.position;
     }
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, _activationZoneRadius);
-    }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.yellow;
+    //    Gizmos.DrawWireSphere(transform.position, _activationZoneRadius);
+    //}
 }

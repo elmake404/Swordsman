@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     private Delimiter _delimiter;
     [SerializeField]
     private Rigidbody _rbMain;
+    [SerializeField]
     private EnemyTower _tower;
 
     public bool IsActive { get; private set; }
