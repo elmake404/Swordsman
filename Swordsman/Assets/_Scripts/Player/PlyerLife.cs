@@ -19,7 +19,7 @@ public class PlyerLife : MonoBehaviour
     {
         if (other.gameObject.layer==9)
         {
-            Debug.Log(123);
+            CanvasManager.IsLoseGame = true;
         }
     }
 }

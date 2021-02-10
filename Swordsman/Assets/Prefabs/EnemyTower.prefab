@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88be6df51a225764c81e6b56417b0236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemies: []
   _listEnemies: 
   _spher: {fileID: 1537724732072612808, guid: 163c5ca0a53958a4a83e3f74a5ad0bf4, type: 3}
   _spherRock: {fileID: 1962435204675889138, guid: 1e797cf44c356af40a669518132df491,
@@ -63,6 +64,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _agent: {fileID: 603329040605266727}
   _speedMove: 0.1
+  _speedRotation: 0.5
   _activationZoneRadius: 10
 --- !u!195 &603329040605266727
 NavMeshAgent:

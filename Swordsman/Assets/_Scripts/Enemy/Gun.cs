@@ -28,7 +28,7 @@ public class Gun : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_target!=null)
+        if (_target!=null && CanvasManager.IsGameFlow)
         {
             if (_sqrActivationZoneRadius >= (_target.position - transform.position).sqrMagnitude)
             {
@@ -39,6 +39,7 @@ public class Gun : MonoBehaviour
                 }
             }
         }
+
         if (_timeShootСhanging >= 0)
         {
             _timeShootСhanging -= Time.deltaTime;

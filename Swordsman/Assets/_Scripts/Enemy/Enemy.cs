@@ -10,12 +10,13 @@ public class Enemy : MonoBehaviour
     private Rigidbody _rbMain;
     [SerializeField]
     private EnemyTower _tower;
-
+    [SerializeField]
+    private Animator _animator;
     public bool IsActive { get; private set; }
 
     void Start()
     {
-
+        StartCoroutine(StopAnomator());
     }
     private void FixedUpdate()
     {
@@ -51,6 +52,12 @@ public class Enemy : MonoBehaviour
             _tower.RemoveSpher(gameObject);
             _tower = null;
         }
+    }
+    private IEnumerator StopAnomator()
+    {
+        _animator.enabled = false;
+        yield return new WaitForSeconds(Random.Range(0.1f,0.7f));
+        _animator.enabled = true;
     }
     public void Initialization(EnemyTower tower)
     {

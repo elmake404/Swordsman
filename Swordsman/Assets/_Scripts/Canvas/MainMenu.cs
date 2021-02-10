@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
-
-    void Update()
+    private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
             CanvasManager.IsStartGeme = true;
+            CanvasManager.IsGameFlow = true;
+
             gameObject.SetActive(false);
         }
     }

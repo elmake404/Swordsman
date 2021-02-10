@@ -4928,7 +4928,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rbMain: {fileID: 7603918061041275954}
   _speedRotationMax: 20
-  _rotationAcceleration: 0.1
+  _rotationAcceleration: 0.01
   _speedMoveMax: 0.15
   _speedLossPercentage: 50
 --- !u!136 &2511205728190735117

@@ -21,7 +21,7 @@ public class Delimiter : MonoBehaviour
         foreach (var halves in _sphereHalves)
         {
             halves.gameObject.SetActive(true);
-            halves.Push(direction, _foresePush);
+            halves.Push(direction, _foresePush+Random.Range(0,100));
         }
 
         Destruction();

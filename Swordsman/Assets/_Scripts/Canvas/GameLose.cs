@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameLose : MonoBehaviour
 {
-    void Update()
+    private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {

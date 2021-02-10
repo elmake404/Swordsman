@@ -28,7 +28,10 @@ public class EnemyTower : MonoBehaviour
             }
             _enemies.Clear();
         }
+
         Vector3 PosSpawn = transform.position;
+        PosSpawn.y -= 1;
+
         for (int i = 0; i < _listEnemies.Count; i++)
         {
             Enemy SpawnSpher = _listEnemies[i] ? _spherRock : _spher;
