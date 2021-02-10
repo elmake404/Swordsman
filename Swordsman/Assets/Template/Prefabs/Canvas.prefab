@@ -829,6 +829,8 @@ MonoBehaviour:
   _inGameUI: {fileID: 1777170646809218}
   _wimIU: {fileID: 1326874676435430}
   _lostUI: {fileID: 1401342752598832}
+  _progresBar: {fileID: 0}
+  _NamberCoin: {fileID: 114725197512022106}
 --- !u!114 &5309080454649153107
 MonoBehaviour:
   m_ObjectHideFlags: 0

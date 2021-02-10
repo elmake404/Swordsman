@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CanvasManager : MonoBehaviour
 {
@@ -10,6 +11,11 @@ public class CanvasManager : MonoBehaviour
 
     [SerializeField]
     private GameObject _menuUI, _inGameUI, _wimIU, _lostUI;
+    [SerializeField]
+    private Image _progresBar;
+    [SerializeField]
+    private Text _NamberCoin;
+
     private void Awake()
     {
         IsWinGame = false;
@@ -17,6 +23,8 @@ public class CanvasManager : MonoBehaviour
     }
     private void Start()
     {
+        PlyerLife.PlayerLife.onCoinTake += AddCoin;
+        _NamberCoin.text = PlayerPrefs.GetInt("Coin").ToString(); 
         if (!IsStartGeme)
         {
             _menuUI.SetActive(true);
@@ -48,5 +56,10 @@ public class CanvasManager : MonoBehaviour
             _inGameUI.SetActive(false);
             _lostUI.SetActive(true);
         }
+    }
+    private void AddCoin(int namber)
+    {
+        PlayerPrefs.SetInt("Coin", PlayerPrefs.GetInt("Coin") + namber);
+        _NamberCoin.text = PlayerPrefs.GetInt("Coin").ToString();
     }
 }
