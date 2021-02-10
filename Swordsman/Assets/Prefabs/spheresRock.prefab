@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3753434086090899376}
   m_Layer: 11
   m_Name: spheresRock
-  m_TagString: Enemy
+  m_TagString: Rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

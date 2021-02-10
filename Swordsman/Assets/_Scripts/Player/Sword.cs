@@ -9,7 +9,7 @@ public class Sword : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.tag == "Rock")
-        {
+        {            
             _player.SpeedCut();
         }
         if (collision.collider.tag == "Wall")
