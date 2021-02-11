@@ -17,6 +17,10 @@ public class Gun : MonoBehaviour
     private float _speedRotation,_timeShoot, _activationZoneRadius;
     private float _sqrActivationZoneRadius , _timeShootСhanging;
 
+    private void Awake()
+    {
+        CanvasManager.QuantityEnemy++;
+    }
 
     private void Start()
     {

@@ -10,12 +10,15 @@ public class EnemyTower : MonoBehaviour
     private List<bool> _listEnemies;
     [SerializeField]
     private Enemy _spher, _spherRock;
-    
 
+    private void Awake()
+    {
+        if (_enemies.Count <= 0)
+            SpawnSpher();
+        CanvasManager.QuantityEnemy += _enemies.Count;
+    }
     void Start()
     {
-        if(_enemies.Count <= 0)
-        SpawnSpher();
     }
     [ContextMenu("SpawnSpher")]
     private void SpawnSpher()

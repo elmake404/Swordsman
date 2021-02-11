@@ -7,6 +7,8 @@ public class CanvasManager : MonoBehaviour
 {
     #region StaticComponent
     public static bool IsStartGeme, IsGameFlow,IsWinGame,IsLoseGame;
+    public static int QuantityEnemy;
+    public static CanvasManager Instance;
     #endregion
 
     [SerializeField]
@@ -14,17 +16,25 @@ public class CanvasManager : MonoBehaviour
     [SerializeField]
     private Image _progresBar;
     [SerializeField]
-    private Text _NamberCoin;
+    private Text _namberCoin, _levelNamberCurrent,_levelNamberTarget,_levelnamberWin;
+
+    private float _progress, _addProgress;
 
     private void Awake()
     {
+        Instance = this;
         IsWinGame = false;
         IsLoseGame = false;
     }
     private void Start()
     {
         PlyerLife.PlayerLife.onCoinTake += AddCoin;
-        _NamberCoin.text = PlayerPrefs.GetInt("Coin").ToString(); 
+        _levelNamberCurrent.text = PlayerPrefs.GetInt("Level").ToString(); 
+        _levelNamberTarget.text = (PlayerPrefs.GetInt("Level")+1).ToString();
+        _levelnamberWin.text = "Level " + PlayerPrefs.GetInt("Level");
+        _namberCoin.text = PlayerPrefs.GetInt("Coin").ToString();
+        _addProgress = 1f / QuantityEnemy;
+
         if (!IsStartGeme)
         {
             _menuUI.SetActive(true);
@@ -45,6 +55,7 @@ public class CanvasManager : MonoBehaviour
         if (!_wimIU.activeSelf&& IsWinGame)
         {
             IsGameFlow = false;
+            QuantityEnemy = 0;
 
             _inGameUI.SetActive(false);
             _wimIU.SetActive(true);
@@ -52,14 +63,32 @@ public class CanvasManager : MonoBehaviour
         if (!_lostUI.activeSelf && IsLoseGame)
         {
             IsGameFlow = false;
+            QuantityEnemy = 0;
 
             _inGameUI.SetActive(false);
             _lostUI.SetActive(true);
         }
     }
+    private void FixedUpdate()
+    {
+        if (_progress>_progresBar.fillAmount)
+        {
+            _progresBar.fillAmount += 0.01f;
+            if (QuantityEnemy<=0)
+            {
+                IsWinGame = true;
+            }
+        }
+
+    }
     private void AddCoin(int namber)
     {
         PlayerPrefs.SetInt("Coin", PlayerPrefs.GetInt("Coin") + namber);
-        _NamberCoin.text = PlayerPrefs.GetInt("Coin").ToString();
+        _namberCoin.text = PlayerPrefs.GetInt("Coin").ToString();
+    }
+    public void AddProgress()
+    {
+        QuantityEnemy--;
+        _progress += _addProgress;
     }
 }

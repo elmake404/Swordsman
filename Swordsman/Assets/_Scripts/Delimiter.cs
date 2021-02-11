@@ -36,6 +36,7 @@ public class Delimiter : MonoBehaviour
     {
         if (_bloodPS != null)
         {
+            _bloodPS.gameObject.SetActive(true);
             _bloodPS.transform.SetParent(null);
             _bloodPS.Play();
             Destroy(_bloodPS, 1);

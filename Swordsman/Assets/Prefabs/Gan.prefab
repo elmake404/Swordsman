@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8020496375647305099}
   - component: {fileID: 6771497279669301205}
   - component: {fileID: 1365231891219432541}
+  - component: {fileID: 1017066635405561769}
   m_Layer: 0
   m_Name: Gan
   m_TagString: Untagged
@@ -86,6 +87,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!65 &1017066635405561769
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3842691749283899642}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.8486736, z: 2.955006}
+  m_Center: {x: 0, y: 0.11298454, z: 0.07475555}
 --- !u!114 &5888480984789954341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,19 +114,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rbMain: {fileID: 7061971418048108537}
   _timeBeforeDestroy: 2
---- !u!65 &641219493127133825
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6159977673130853746}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1.1316726, z: 2.0522585}
-  m_Center: {x: 0, y: 0.47148502, z: 0.5261292}
 --- !u!114 &795956254216828217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,6 +138,10 @@ PrefabInstance:
     - target: {fileID: 1041181722733882, guid: 46cb51842826d77438ecf64a2ff442ae, type: 3}
       propertyPath: m_Name
       value: Blood_Impact_Small_Red
+      objectReference: {fileID: 0}
+    - target: {fileID: 1041181722733882, guid: 46cb51842826d77438ecf64a2ff442ae, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4912095355984980, guid: 46cb51842826d77438ecf64a2ff442ae, type: 3}
       propertyPath: m_LocalPosition.x
@@ -355,6 +360,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 72423628932460908, guid: d4dd35830c6646d4e8ea8e83ab76ca2e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 286690077661407591, guid: d4dd35830c6646d4e8ea8e83ab76ca2e,
         type: 3}
       propertyPath: m_RootOrder
@@ -394,6 +404,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2387376367980933821, guid: d4dd35830c6646d4e8ea8e83ab76ca2e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3652730554007554511, guid: d4dd35830c6646d4e8ea8e83ab76ca2e,
         type: 3}
@@ -501,12 +516,6 @@ PrefabInstance:
 --- !u!4 &1990818217643678151 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8299841868453895128, guid: d4dd35830c6646d4e8ea8e83ab76ca2e,
-    type: 3}
-  m_PrefabInstance: {fileID: 7534021535709577759}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &6159977673130853746 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4463801317698144109, guid: d4dd35830c6646d4e8ea8e83ab76ca2e,
     type: 3}
   m_PrefabInstance: {fileID: 7534021535709577759}
   m_PrefabAsset: {fileID: 0}

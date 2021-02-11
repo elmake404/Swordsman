@@ -8,19 +8,9 @@ public class destroyMe : MonoBehaviour{
 
 
 	// Use this for initialization
-	void Start () {
-	
+	void Start () 
+	{
+		Destroy(gameObject, deathtimer);
 	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-        timer += Time.deltaTime;
 
-        if(timer >= deathtimer)
-        {
-            Destroy(gameObject);
-        }
-	
-	}
 }

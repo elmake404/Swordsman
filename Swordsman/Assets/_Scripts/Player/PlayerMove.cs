@@ -13,11 +13,12 @@ public class PlayerMove : MonoBehaviour
     private Vector3 _directionRotation = Vector3.up;
 
     [SerializeField]
-    private float _speedRotationMax, _rotationAcceleration, _speedMoveMax;
+    private float _speedRotationMax,_speedRotationMin, _speedBoostRotation, _speedPenaltyRotation, _timeRage, _rotationSlowdown, _speedMoveMax;
     [SerializeField]
     [Range(0, 100)]
     private float _speedLossPercentage;
-    private float _speedRotation;
+
+    private float _speedRotation,_timerRage;
     private void Awake()
     {
         PlayerTransform = transform;
@@ -25,7 +26,7 @@ public class PlayerMove : MonoBehaviour
     private void Start()
     {
         _cam = Camera.main;
-        _speedRotation = _speedRotationMax;
+        _speedRotation = _speedRotationMin;
     }
 
     private void Update()
@@ -60,7 +61,11 @@ public class PlayerMove : MonoBehaviour
     {
         if (CanvasManager.IsGameFlow)
         {
-            _speedRotation = Mathf.Lerp(_speedRotation, _speedRotationMax, _rotationAcceleration);
+            if (_timerRage <= 0)
+                _speedRotation = Mathf.Lerp(_speedRotation, _speedRotationMin, _rotationSlowdown);
+            else
+                _timerRage -= Time.deltaTime;
+
             transform.Rotate(_directionRotation * _speedRotation);
         }
     }
@@ -71,6 +76,24 @@ public class PlayerMove : MonoBehaviour
     public void ChangeDirectionRotation()
     {
         _directionRotation.y *= -1;
+    }
+    public void AddSpeedRotation()
+    {
+        _speedRotation += _speedBoostRotation;
+        _timerRage = _timeRage;
+        if (_speedRotation>_speedRotationMax)
+        {
+            _speedRotation = _speedRotationMax;
+        }
+    }
+    public void TakeAwaySpeedRotation()
+    {
+        _speedRotation += _speedPenaltyRotation;
+        if (_speedRotation < _speedRotationMin)
+        {
+            _speedRotation = _speedRotationMin;
+        }
+
     }
 
 }

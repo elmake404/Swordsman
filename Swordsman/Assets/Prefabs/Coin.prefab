@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 985483830680989299}
   - component: {fileID: 3047198737717877433}
   - component: {fileID: 8464813052667662832}
-  - component: {fileID: 975151857719023772}
+  - component: {fileID: 4307978308246922407}
   m_Layer: 15
   m_Name: Coin
   m_TagString: Coin
@@ -100,8 +100,8 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!64 &975151857719023772
-MeshCollider:
+--- !u!135 &4307978308246922407
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -110,7 +110,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -1931347974714207590, guid: 35c6d7ea057cee24aa9d8570f249e509, type: 3}
+  serializedVersion: 2
+  m_Radius: 0.015
+  m_Center: {x: 0, y: -0.000029259369, z: 0.000066407505}

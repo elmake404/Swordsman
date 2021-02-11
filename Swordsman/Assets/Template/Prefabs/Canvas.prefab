@@ -829,8 +829,11 @@ MonoBehaviour:
   _inGameUI: {fileID: 1777170646809218}
   _wimIU: {fileID: 1326874676435430}
   _lostUI: {fileID: 1401342752598832}
-  _progresBar: {fileID: 0}
-  _NamberCoin: {fileID: 114725197512022106}
+  _progresBar: {fileID: 114592505259201384}
+  _namberCoin: {fileID: 114725197512022106}
+  _levelNamberCurrent: {fileID: 114298626813103218}
+  _levelNamberTarget: {fileID: 114444994017357224}
+  _levelnamberWin: {fileID: 114571137488477882}
 --- !u!114 &5309080454649153107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4170,7 +4173,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.68
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
