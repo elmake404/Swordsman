@@ -7,6 +7,8 @@ public class TowerMove : MonoBehaviour
 {
     [SerializeField]
     private NavMeshAgent _agent;
+    [SerializeField]
+    private Rigidbody _rb;
     private Transform _target;
 
 
@@ -37,7 +39,7 @@ public class TowerMove : MonoBehaviour
             }
 
         }
-
+        _rb.velocity = Vector3.zero;
     }
 
     private void MoveTower()
@@ -50,8 +52,12 @@ public class TowerMove : MonoBehaviour
     private void RotationGan(Vector3 target)
     {
         Vector3 PosTarget = new Vector3(target.x, transform.position.y, target.z);
-        Quaternion rotation = Quaternion.LookRotation(transform.position - PosTarget);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, _speedRotation);
+        Vector3 look = transform.position - PosTarget;
+        if (look != Vector3.zero)
+        {
+            Quaternion rotation = Quaternion.LookRotation(look);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, _speedRotation);
+        }
     }
 
     //private void OnDrawGizmos()

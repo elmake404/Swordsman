@@ -19,6 +19,7 @@ public class PlyerLife : MonoBehaviour
     {
         if (other.GetComponent<Delimiter>() != null)
         {
+            if(!CanvasManager.IsWinGame)
             CanvasManager.IsLoseGame = true;
 
             Destroy(transform.parent.gameObject);
@@ -40,7 +41,7 @@ public class PlyerLife : MonoBehaviour
         if (other.gameObject.layer == 9)
         {
             _ether.Remove(other.gameObject);
-            if(_ether.Count<=0)
+            if(_ether.Count<=0&& !CanvasManager.IsWinGame)
             CanvasManager.IsLoseGame = true;
         }
     }

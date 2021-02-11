@@ -14,11 +14,13 @@ public class CanvasManager : MonoBehaviour
     [SerializeField]
     private GameObject _menuUI, _inGameUI, _wimIU, _lostUI;
     [SerializeField]
-    private Image _progresBar;
+    private Image _progresBar ,_rageBar,_face;
     [SerializeField]
     private Text _namberCoin, _levelNamberCurrent,_levelNamberTarget,_levelnamberWin;
+    [SerializeField]
+    private Color _faceRageColor;
 
-    private float _progress, _addProgress;
+    private float _progress, _addProgress,_rage;
 
     private void Awake()
     {
@@ -29,11 +31,8 @@ public class CanvasManager : MonoBehaviour
     private void Start()
     {
         PlyerLife.PlayerLife.onCoinTake += AddCoin;
-        _levelNamberCurrent.text = PlayerPrefs.GetInt("Level").ToString(); 
-        _levelNamberTarget.text = (PlayerPrefs.GetInt("Level")+1).ToString();
-        _levelnamberWin.text = "Level " + PlayerPrefs.GetInt("Level");
-        _namberCoin.text = PlayerPrefs.GetInt("Coin").ToString();
         _addProgress = 1f / QuantityEnemy;
+        TextLevel();
 
         if (!IsStartGeme)
         {
@@ -76,15 +75,37 @@ public class CanvasManager : MonoBehaviour
             _progresBar.fillAmount += 0.01f;
             if (QuantityEnemy<=0)
             {
+                if(!IsLoseGame)
                 IsWinGame = true;
             }
         }
-
+        _rageBar.fillAmount = Mathf.Lerp(_rageBar.fillAmount, _rage,0.1f);
     }
     private void AddCoin(int namber)
     {
         PlayerPrefs.SetInt("Coin", PlayerPrefs.GetInt("Coin") + namber);
         _namberCoin.text = PlayerPrefs.GetInt("Coin").ToString();
+    }
+    private void TextLevel()
+    {
+        _levelNamberCurrent.text = PlayerPrefs.GetInt("Level").ToString();
+        _levelNamberTarget.text = (PlayerPrefs.GetInt("Level") + 1).ToString();
+        _levelnamberWin.text = "Level " + PlayerPrefs.GetInt("Level");
+        _namberCoin.text = PlayerPrefs.GetInt("Coin").ToString();
+    }
+
+    public void Rage(float namber)
+    {
+        _rage = namber;
+        if (_rage == 1&& _face.color != _faceRageColor)
+        {
+            _face.color = _faceRageColor;
+        }
+        else if (_rage < 1 && _face.color != Color.white)
+        {
+            _face.color = Color.white;
+
+        }
     }
     public void AddProgress()
     {

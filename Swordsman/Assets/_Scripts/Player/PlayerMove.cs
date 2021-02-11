@@ -53,7 +53,7 @@ public class PlayerMove : MonoBehaviour
                     transform.position += _directionMove * _speedMoveMax;
                 }
             }
-
+            RageCount();
         }
     }
 
@@ -69,14 +69,15 @@ public class PlayerMove : MonoBehaviour
             transform.Rotate(_directionRotation * _speedRotation);
         }
     }
+    private void RageCount()
+    {
+        float factor = 1f / (_speedRotationMax - _speedRotationMin);
+        CanvasManager.Instance.Rage((_speedRotation-_speedRotationMin)*factor);
+    }
     public void SpeedCut()
-    {
-        _speedRotation = _speedRotationMax - ((_speedRotationMax / 100) * _speedLossPercentage);
-    }
-    public void ChangeDirectionRotation()
-    {
-        _directionRotation.y *= -1;
-    }
+        => _speedRotation = _speedRotationMax - ((_speedRotationMax / 100) * _speedLossPercentage);
+    public void ChangeDirectionRotation() 
+        => _directionRotation.y *= -1;
     public void AddSpeedRotation()
     {
         _speedRotation += _speedBoostRotation;

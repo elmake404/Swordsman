@@ -10,6 +10,8 @@ public class EnemyTower : MonoBehaviour
     private List<bool> _listEnemies;
     [SerializeField]
     private Enemy _spher, _spherRock;
+    [SerializeField]
+    private BoxCollider _boxCollider;
 
     private void Awake()
     {
@@ -19,6 +21,7 @@ public class EnemyTower : MonoBehaviour
     }
     void Start()
     {
+        ColliderSettings();
     }
     [ContextMenu("SpawnSpher")]
     private void SpawnSpher()
@@ -54,10 +57,20 @@ public class EnemyTower : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.black;
         Gizmos.DrawWireSphere(transform.position, _spher.transform.localScale.z/2);
     }
+    private void ColliderSettings()
+    {
+        Vector3 CenterCollider = _boxCollider.center;
+        CenterCollider.y = (_enemies.Count - 1);
+        _boxCollider.center = CenterCollider;
+        Vector3 SizeCollider = _boxCollider.size;
+        SizeCollider.y = (_enemies.Count) * 2;
+        _boxCollider.size = SizeCollider;
+
+    }
+
 }

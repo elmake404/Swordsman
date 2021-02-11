@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 3057358779781796718}
   - component: {fileID: 8975398234896055266}
   - component: {fileID: 603329040605266727}
-  m_Layer: 0
+  - component: {fileID: 5435304058071604699}
+  - component: {fileID: 6528025577607587595}
+  m_Layer: 16
   m_Name: EnemyTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,6 +52,7 @@ MonoBehaviour:
   _spher: {fileID: 1537724732072612808, guid: 163c5ca0a53958a4a83e3f74a5ad0bf4, type: 3}
   _spherRock: {fileID: 1962435204675889138, guid: 1e797cf44c356af40a669518132df491,
     type: 3}
+  _boxCollider: {fileID: 5435304058071604699}
 --- !u!114 &8975398234896055266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,6 +66,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _agent: {fileID: 603329040605266727}
+  _rb: {fileID: 6528025577607587595}
   _speedMove: 0.1
   _speedRotation: 0.5
   _activationZoneRadius: 10
@@ -88,3 +92,32 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &5435304058071604699
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8835543054234163478}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &6528025577607587595
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8835543054234163478}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 116
+  m_CollisionDetection: 0
