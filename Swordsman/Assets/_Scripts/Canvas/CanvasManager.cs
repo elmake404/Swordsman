@@ -30,6 +30,10 @@ public class CanvasManager : MonoBehaviour
     }
     private void Start()
     {
+        if (PlayerPrefs.GetInt("Level")<=0)
+        {
+            PlayerPrefs.SetInt("Level", 1);
+        }
         PlyerLife.PlayerLife.onCoinTake += AddCoin;
         _addProgress = 1f / QuantityEnemy;
         TextLevel();
@@ -56,6 +60,8 @@ public class CanvasManager : MonoBehaviour
             IsGameFlow = false;
             QuantityEnemy = 0;
 
+            PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
+            PlayerPrefs.SetInt("Scenes", PlayerPrefs.GetInt("Scenes") + 1);
             _inGameUI.SetActive(false);
             _wimIU.SetActive(true);
         }

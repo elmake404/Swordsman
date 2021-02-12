@@ -10,6 +10,7 @@ public class GameContinue : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             CanvasManager.IsWinGame = false;
+
             if (PlayerPrefs.GetInt("Scenes") < SceneManager.sceneCountInBuildSettings - 1)
             {
                 SceneManager.LoadScene(PlayerPrefs.GetInt("Scenes"));
