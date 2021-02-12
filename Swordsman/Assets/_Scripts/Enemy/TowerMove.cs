@@ -29,7 +29,6 @@ public class TowerMove : MonoBehaviour
         _agent.updatePosition = false;
         _agent.updateRotation = false;
     }
-
     void FixedUpdate()
     {
         if (CanvasManager.IsGameFlow)
@@ -41,13 +40,10 @@ public class TowerMove : MonoBehaviour
                 {
                     _isActivation = true;
                 }
-
             }
-
         }
         _rb.velocity = Vector3.zero;
     }
-
     private void MoveTower()
     {
         _agent.SetDestination(_target.position);
@@ -68,10 +64,4 @@ public class TowerMove : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, _speedRotation);
         }
     }
-
-    //private void OnDrawGizmos()
-    //{
-    //    Gizmos.color = Color.yellow;
-    //    Gizmos.DrawWireSphere(transform.position, _activationZoneRadius);
-    //}
 }

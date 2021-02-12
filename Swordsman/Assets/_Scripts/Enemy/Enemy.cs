@@ -17,14 +17,14 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private Material _quickMateril;
     [SerializeField]
-    private GameObject _helmet;
+    private Helmet _helmet;
 
     [SerializeField]
     private float _speedQuickMultiplier;
-    public float SpeedMultiplier;
-
-    [SerializeField]
     private int _health;
+
+    [HideInInspector]
+    public float SpeedMultiplier;
     public bool IsActive { get; private set; }
 
     void Start()
@@ -50,7 +50,8 @@ public class Enemy : MonoBehaviour
             }
             else
             {
-                _helmet.SetActive(false);
+                _helmet.PushHelmet(collision.GetContact(0).point);
+                //_helmet.gameObject.SetActive(false);
                 _health -= 1;
             }
         }
@@ -90,7 +91,7 @@ public class Enemy : MonoBehaviour
         {
             if (_helmet)
             {
-                _helmet.SetActive(true);
+                _helmet.gameObject.SetActive(true);
             }
             _health++;
         }

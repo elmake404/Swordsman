@@ -757,7 +757,7 @@ PrefabInstance:
     - target: {fileID: 3057358779781796718, guid: 783b5f1cb9e14f845b810156e97a81ed,
         type: 3}
       propertyPath: _listEnemies.Array.data[0].Armored
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3057358779781796718, guid: 783b5f1cb9e14f845b810156e97a81ed,
         type: 3}

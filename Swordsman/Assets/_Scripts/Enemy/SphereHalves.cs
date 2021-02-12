@@ -5,7 +5,7 @@ using UnityEngine;
 public class SphereHalves : MonoBehaviour
 {
     [SerializeField]
-    private Rigidbody _rbMain;
+    protected Rigidbody _rbMain;
     [SerializeField]
     private float _timeBeforeDestroy =2;
 
