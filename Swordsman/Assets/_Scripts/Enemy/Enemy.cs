@@ -12,6 +12,19 @@ public class Enemy : MonoBehaviour
     private EnemyTower _tower;
     [SerializeField]
     private Animator _animator;
+    [SerializeField]
+    private SkinnedMeshRenderer _mesh;
+    [SerializeField]
+    private Material _quickMateril;
+    [SerializeField]
+    private GameObject _helmet;
+
+    [SerializeField]
+    private float _speedQuickMultiplier;
+    public float SpeedMultiplier;
+
+    [SerializeField]
+    private int _health;
     public bool IsActive { get; private set; }
 
     void Start()
@@ -29,8 +42,17 @@ public class Enemy : MonoBehaviour
     {
         if (collision.collider.tag == "Sword" && IsActive)
         {
-            RemovalFromTower();
-            _delimiter.Separation(collision.GetContact(0).point);
+            if (_health <= 0)
+            {
+                RemovalFromTower();
+                CanvasManager.Instance.AddProgress();
+                _delimiter.Separation(collision.GetContact(0).point);
+            }
+            else
+            {
+                _helmet.SetActive(false);
+                _health -= 1;
+            }
         }
 
         if (collision.gameObject.layer == 9)
@@ -38,29 +60,47 @@ public class Enemy : MonoBehaviour
             gameObject.layer = 11;
 
             IsActive = true;
-            if (tag == "Rock")
-            {
-                RemovalFromTower();
-                transform.SetParent(null);
-            }
+            //if (tag == "Rock")
+            //{
+            //    RemovalFromTower();
+            //    transform.SetParent(null);
+            //}
         }
     }
     private void RemovalFromTower()
     {
         if (_tower != null)
         {
-            _tower.RemoveSpher(gameObject);
+            _tower.RemoveSpher(this);
             _tower = null;
         }
     }
     private IEnumerator StopAnomator()
     {
         _animator.enabled = false;
-        yield return new WaitForSeconds(Random.Range(0.1f,0.7f));
+        yield return new WaitForSeconds(Random.Range(0.1f, 0.7f));
         _animator.enabled = true;
     }
-    public void Initialization(EnemyTower tower)
+    public void Initialization(EnemyTower tower, bool armored, bool quick)
     {
         _tower = tower;
+        SpeedMultiplier = 1;
+
+        if (armored)
+        {
+            if (_helmet)
+            {
+                _helmet.SetActive(true);
+            }
+            _health++;
+        }
+        else if (quick)
+        {
+            if (_quickMateril != null)
+            {
+                _mesh.material = _quickMateril;
+            }
+            SpeedMultiplier = _speedQuickMultiplier;
+        }
     }
 }

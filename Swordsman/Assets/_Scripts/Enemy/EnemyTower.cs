@@ -4,19 +4,28 @@ using UnityEngine;
 
 public class EnemyTower : MonoBehaviour
 {
+    [System.Serializable]
+    private struct EnemyCharacteristics
+    {
+        public bool Armored;
+        public bool Quick;
+    }
+
     [SerializeField]
-    private List<GameObject> _enemies = new List<GameObject>();
+    private List<Enemy> _enemies = new List<Enemy>();
     [SerializeField]
-    private List<bool> _listEnemies;
+    private List<EnemyCharacteristics> _listEnemies;
     [SerializeField]
-    private Enemy _spher, _spherRock;
+    private Enemy _spher;
     [SerializeField]
     private BoxCollider _boxCollider;
 
     private void Awake()
     {
-        if (_enemies.Count <= 0)
+        if (_listEnemies.Count != _enemies.Count)
             SpawnSpher();
+
+        InitializationEnemy();
         CanvasManager.QuantityEnemy += _enemies.Count;
     }
     void Start()
@@ -26,11 +35,11 @@ public class EnemyTower : MonoBehaviour
     [ContextMenu("SpawnSpher")]
     private void SpawnSpher()
     {
-        if (_enemies.Count>0)
+        if (_enemies.Count > 0)
         {
             for (int i = 0; i < _enemies.Count; i++)
             {
-                DestroyImmediate(_enemies[i]);
+                DestroyImmediate(_enemies[i].gameObject);
             }
             _enemies.Clear();
         }
@@ -40,27 +49,23 @@ public class EnemyTower : MonoBehaviour
 
         for (int i = 0; i < _listEnemies.Count; i++)
         {
-            Enemy SpawnSpher = _listEnemies[i] ? _spherRock : _spher;
-            Enemy Spher = Instantiate(SpawnSpher,PosSpawn,SpawnSpher.transform.rotation);
-            Spher.transform.SetParent(transform);
-            Spher.Initialization(this);
-            _enemies.Add(Spher.gameObject);
+            Enemy enemy = Instantiate(_spher, PosSpawn, _spher.transform.rotation);
+            enemy.transform.SetParent(transform);
+            _enemies.Add(enemy);
             PosSpawn.y += 2;
         }
     }
-    public void RemoveSpher(GameObject SpherObj)
+    private void InitializationEnemy()
     {
-        _enemies.Remove(SpherObj);
-
-        if (_enemies.Count<=0)
+        for (int i = 0; i < _enemies.Count; i++)
         {
-            Destroy(gameObject);
+            _enemies[i].Initialization(this, _listEnemies[i].Armored, _listEnemies[i].Quick);
         }
     }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.black;
-        Gizmos.DrawWireSphere(transform.position, _spher.transform.localScale.z/2);
+        Gizmos.DrawWireSphere(transform.position, _spher.transform.localScale.z / 2);
     }
     private void ColliderSettings()
     {
@@ -72,5 +77,19 @@ public class EnemyTower : MonoBehaviour
         _boxCollider.size = SizeCollider;
 
     }
+    public void RemoveSpher(Enemy enemy)
+    {
+        _enemies.Remove(enemy);
+
+        if (_enemies.Count <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+    public Enemy EnemyIsOnTheGround()
+    {
+        return _enemies[0];
+    }
+
 
 }
