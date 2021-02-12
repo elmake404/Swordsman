@@ -53,6 +53,8 @@ public class Gun : MonoBehaviour
     {
         if (collision.collider.tag == "Sword")
         {
+            CanvasManager.Instance.AddProgress();
+
             _delimiter.Separation(collision.GetContact(0).point);
         }
     }

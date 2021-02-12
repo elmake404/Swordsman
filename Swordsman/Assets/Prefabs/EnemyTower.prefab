@@ -48,10 +48,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemies: []
-  _listEnemies: 
+  _listEnemies: []
   _spher: {fileID: 1537724732072612808, guid: 163c5ca0a53958a4a83e3f74a5ad0bf4, type: 3}
-  _spherRock: {fileID: 1962435204675889138, guid: 1e797cf44c356af40a669518132df491,
-    type: 3}
   _boxCollider: {fileID: 5435304058071604699}
 --- !u!114 &8975398234896055266
 MonoBehaviour:
@@ -67,6 +65,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _agent: {fileID: 603329040605266727}
   _rb: {fileID: 6528025577607587595}
+  _tower: {fileID: 3057358779781796718}
   _speedMove: 0.1
   _speedRotation: 0.5
   _activationZoneRadius: 10

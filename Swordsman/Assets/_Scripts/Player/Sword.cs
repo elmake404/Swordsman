@@ -12,15 +12,12 @@ public class Sword : MonoBehaviour
         {            
             _player.SpeedCut();
         }
+
         if (collision.collider.tag == "Wall")
         {
             _player.ChangeDirectionRotation();
         }
-        if (collision.collider.GetComponent<Enemy>() != null
-            || collision.collider.GetComponent<Gun>() != null)
-        {
-            CanvasManager.Instance.AddProgress();
-        }
+
         if (collision.collider.GetComponent<Delimiter>())
         {
             if (collision.collider.tag =="Rock")

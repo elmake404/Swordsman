@@ -9,6 +9,8 @@ public class TowerMove : MonoBehaviour
     private NavMeshAgent _agent;
     [SerializeField]
     private Rigidbody _rb;
+    [SerializeField]
+    private EnemyTower _tower;
     private Transform _target;
 
 
@@ -30,12 +32,16 @@ public class TowerMove : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (_target != null && CanvasManager.IsGameFlow)
+        if (CanvasManager.IsGameFlow)
         {
-            if (_isActivation) MoveTower();
-            else if (!_isActivation && _sqrActivationZoneRadius >= (_target.position - transform.position).sqrMagnitude)
+            if (_target != null && _tower.EnemyIsOnTheGround().IsActive)
             {
-                _isActivation = true;
+                if (_isActivation) MoveTower();
+                else if (!_isActivation && _sqrActivationZoneRadius >= (_target.position - transform.position).sqrMagnitude)
+                {
+                    _isActivation = true;
+                }
+
             }
 
         }
@@ -46,7 +52,10 @@ public class TowerMove : MonoBehaviour
     {
         _agent.SetDestination(_target.position);
         RotationGan(_agent.steeringTarget);
-        transform.position = Vector3.MoveTowards(transform.position, _agent.steeringTarget, _speedMove);
+
+        float speed = _speedMove * _tower.EnemyIsOnTheGround().SpeedMultiplier;
+        transform.position = Vector3.MoveTowards(transform.position, _agent.steeringTarget, speed);
+
         _agent.nextPosition = transform.position;
     }
     private void RotationGan(Vector3 target)
