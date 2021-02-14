@@ -50,7 +50,7 @@ public class PlayerMove : MonoBehaviour
 
                     _directionMove.x = directionMose.x;
                     _directionMove.z = directionMose.y;
-                    transform.position += _directionMove * _speedMoveMax;
+                    transform.position += _directionMove * _speedMoveMax*Time.deltaTime;
                 }
             }
             RageCount();
