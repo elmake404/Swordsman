@@ -68,7 +68,7 @@ MonoBehaviour:
   _tower: {fileID: 3057358779781796718}
   _speedMove: 0.1
   _speedRotation: 0.5
-  _activationZoneRadius: 10
+  _activationZoneRadius: 30
 --- !u!195 &603329040605266727
 NavMeshAgent:
   m_ObjectHideFlags: 0
