@@ -26,7 +26,6 @@ public class Shell : MonoBehaviour
         if (collision.collider.tag == "Sword" 
             || collision.collider.tag == "Wall")
         {
-            gameObject.layer = 12;
             _delimiter.Separation(collision.GetContact(0).point);
         }
     }

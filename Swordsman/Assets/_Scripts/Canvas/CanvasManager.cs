@@ -14,7 +14,7 @@ public class CanvasManager : MonoBehaviour
     [SerializeField]
     private GameObject _menuUI, _inGameUI, _wimIU, _lostUI;
     [SerializeField]
-    private Image _progresBar ,_rageBar,_face;
+    private Image _progresBar ,_rageBar,_face, _joystick;
     [SerializeField]
     private Text _namberCoin, _levelNamberCurrent,_levelNamberTarget,_levelnamberWin;
     [SerializeField]
@@ -34,6 +34,7 @@ public class CanvasManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("Level", 1);
         }
+
         PlyerLife.PlayerLife.onCoinTake += AddCoin;
         _addProgress = 1f / QuantityEnemy;
         TextLevel();
@@ -50,6 +51,11 @@ public class CanvasManager : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            _joystick.transform.position = Input.mousePosition;
+        }
+
         if (!_inGameUI.activeSelf && IsStartGeme)
         {
             _menuUI.SetActive(false);
