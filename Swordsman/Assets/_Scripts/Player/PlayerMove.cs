@@ -84,6 +84,7 @@ public class PlayerMove : MonoBehaviour
 
             transform.Rotate(_directionRotation * _speedRotation);
         }
+        _rbMain.velocity = Vector3.zero;
     }
     private void RageCount()
     {

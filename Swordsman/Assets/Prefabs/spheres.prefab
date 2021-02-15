@@ -659,7 +659,7 @@ GameObject:
   - component: {fileID: 5050203566546474829}
   - component: {fileID: 3395927392864876736}
   - component: {fileID: 3464526653221026968}
-  m_Layer: 12
+  m_Layer: 8
   m_Name: Shell (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
