@@ -66,7 +66,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b54a84867f079b48a84df387d9c1dc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bloodPS: {fileID: 1551518311412134086}
+  _bloodPS: {fileID: 0}
   _sphereHalves:
   - {fileID: 795956254216828217}
   - {fileID: 5888480984789954341}
@@ -339,12 +339,6 @@ PrefabInstance:
 --- !u!4 &1683166726325061304 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4912095355984980, guid: 46cb51842826d77438ecf64a2ff442ae,
-    type: 3}
-  m_PrefabInstance: {fileID: 1678361335757740780}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &1551518311412134086 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 198902826002082346, guid: 46cb51842826d77438ecf64a2ff442ae,
     type: 3}
   m_PrefabInstance: {fileID: 1678361335757740780}
   m_PrefabAsset: {fileID: 0}
