@@ -4934,7 +4934,7 @@ MonoBehaviour:
   _speedPenaltyRotation: 1.5
   _timeRage: 2
   _rotationSlowdown: 0.05
-  _speedMoveMax: 100
+  _speedMoveMax: 20
   _speedLossPercentage: 50
 --- !u!136 &2511205728190735117
 CapsuleCollider:
