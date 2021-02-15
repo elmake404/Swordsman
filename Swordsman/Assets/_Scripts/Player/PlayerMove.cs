@@ -46,7 +46,7 @@ public class PlayerMove : MonoBehaviour
                 _currenMousePos = _cam.ScreenToViewportPoint(Input.mousePosition);
                 if ((_currenMousePos - _startMousePos).sqrMagnitude > 0.0001f)
                 {
-                    Vector3 directionMose = (_currenMousePos - _startMousePos).normalized;
+                    Vector3 directionMose = (_currenMousePos - _startMousePos);
 
                     _directionMove.x = directionMose.x;
                     _directionMove.z = directionMose.y;

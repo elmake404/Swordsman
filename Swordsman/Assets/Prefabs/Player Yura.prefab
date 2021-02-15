@@ -4928,13 +4928,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rbMain: {fileID: 7603918061041275954}
-  _speedRotationMax: 20
-  _speedRotationMin: 10
+  _speedRotationMax: 30
+  _speedRotationMin: 15
   _speedBoostRotation: 2.5
   _speedPenaltyRotation: 1.5
   _timeRage: 2
   _rotationSlowdown: 0.05
-  _speedMoveMax: 20
+  _speedMoveMax: 60
   _speedLossPercentage: 50
 --- !u!136 &2511205728190735117
 CapsuleCollider:

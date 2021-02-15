@@ -1282,9 +1282,9 @@ Transform:
   - {fileID: 1546830276}
   - {fileID: 1958117409}
   - {fileID: 1662366483}
-  - {fileID: 1338051871}
   - {fileID: 1917567659}
   - {fileID: 307248967}
+  - {fileID: 1338051871}
   - {fileID: 998497654}
   - {fileID: 1839554477}
   - {fileID: 1743350156}
@@ -5211,23 +5211,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5979204046865870217, guid: a63acb3d546d30b489a6be6817296557,
         type: 3}
-      propertyPath: _speedMoveMax
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 5979204046865870217, guid: a63acb3d546d30b489a6be6817296557,
-        type: 3}
       propertyPath: _speedLossPercentage
       value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 5979204046865870217, guid: a63acb3d546d30b489a6be6817296557,
-        type: 3}
-      propertyPath: _speedRotationMin
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5979204046865870217, guid: a63acb3d546d30b489a6be6817296557,
-        type: 3}
-      propertyPath: _speedRotationMax
-      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8879031047744217761, guid: a63acb3d546d30b489a6be6817296557,
         type: 3}
