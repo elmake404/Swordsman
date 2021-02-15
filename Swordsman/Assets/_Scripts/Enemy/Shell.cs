@@ -23,7 +23,8 @@ public class Shell : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.tag == "Sword" )
+        if (collision.collider.tag == "Sword" 
+            || collision.collider.tag == "Wall")
         {
             gameObject.layer = 12;
             _delimiter.Separation(collision.GetContact(0).point);
