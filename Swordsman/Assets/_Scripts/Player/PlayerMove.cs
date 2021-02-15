@@ -35,24 +35,40 @@ public class PlayerMove : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                _startMousePos = _cam.ScreenToViewportPoint(Input.mousePosition);
+                _startMousePos = /*_cam.ScreenToViewportPoint*/(Input.mousePosition);
             }
             else if (Input.GetMouseButton(0))
             {
                 if (_startMousePos == Vector3.zero)
                 {
-                    _startMousePos = _cam.ScreenToViewportPoint(Input.mousePosition);
+                    _startMousePos = /*_cam.ScreenToViewportPoint*/(Input.mousePosition);
                 }
-                _currenMousePos = _cam.ScreenToViewportPoint(Input.mousePosition);
+
+                _currenMousePos = /*_cam.ScreenToViewportPoint*/(Input.mousePosition);
+
                 if ((_currenMousePos - _startMousePos).sqrMagnitude > 0.0001f)
                 {
-                    Vector3 directionMose = (_currenMousePos - _startMousePos);
+                    Vector3 directionMose = (_currenMousePos - _startMousePos)/100;
 
-                    _directionMove.x = directionMose.x;
-                    _directionMove.z = directionMose.y;
-                    transform.position += _directionMove * _speedMoveMax*Time.deltaTime;
+                    if ((directionMose).sqrMagnitude <= 1)
+                    {
+                        _directionMove.x = directionMose.x;
+                        _directionMove.z = directionMose.y;
+                    }
+                    else
+                    {
+                        directionMose = directionMose.normalized;
+                        _directionMove.x = directionMose.x;
+                        _directionMove.z = directionMose.y;
+
+                    }
+                    //Debug.Log(directionMose);
+                    transform.position += _directionMove * _speedMoveMax * Time.deltaTime;
                 }
+                //Debug.Log(_currenMousePos - _startMousePos);
+
             }
+
             RageCount();
         }
     }
