@@ -11,7 +11,7 @@ public class GameContinue : MonoBehaviour
         {
             CanvasManager.IsWinGame = false;
 
-            if (PlayerPrefs.GetInt("Scenes") < SceneManager.sceneCountInBuildSettings - 1)
+            if (PlayerPrefs.GetInt("Scenes") < SceneManager.sceneCountInBuildSettings)
             {
                 SceneManager.LoadScene(PlayerPrefs.GetInt("Scenes"));
             }

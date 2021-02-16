@@ -832,7 +832,6 @@ MonoBehaviour:
   _progresBar: {fileID: 114592505259201384}
   _rageBar: {fileID: 5245485659442292121}
   _face: {fileID: 317529610277648206}
-  _joystick: {fileID: 0}
   _namberCoin: {fileID: 114725197512022106}
   _levelNamberCurrent: {fileID: 114298626813103218}
   _levelNamberTarget: {fileID: 114444994017357224}

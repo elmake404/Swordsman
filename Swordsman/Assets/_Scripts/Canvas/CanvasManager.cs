@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class CanvasManager : MonoBehaviour
 {
     #region StaticComponent
-    public static bool IsStartGeme, IsGameFlow,IsWinGame,IsLoseGame;
+    public static bool IsStartGeme, IsGameFlow, IsWinGame, IsLoseGame;
     public static int QuantityEnemy;
     public static CanvasManager Instance;
     #endregion
@@ -14,13 +14,13 @@ public class CanvasManager : MonoBehaviour
     [SerializeField]
     private GameObject _menuUI, _inGameUI, _wimIU, _lostUI;
     [SerializeField]
-    private Image _progresBar ,_rageBar,_face;
+    private Image _progresBar, _rageBar, _face;
     [SerializeField]
-    private Text _namberCoin, _levelNamberCurrent,_levelNamberTarget,_levelnamberWin;
+    private Text _namberCoin, _levelNamberCurrent, _levelNamberTarget, _levelnamberWin;
     [SerializeField]
     private Color _faceRageColor;
 
-    private float _progress, _addProgress,_rage;
+    private float _progress, _addProgress, _rage;
 
     private void Awake()
     {
@@ -30,7 +30,7 @@ public class CanvasManager : MonoBehaviour
     }
     private void Start()
     {
-        if (PlayerPrefs.GetInt("Level")<=0)
+        if (PlayerPrefs.GetInt("Level") <= 0)
         {
             PlayerPrefs.SetInt("Level", 1);
         }
@@ -54,12 +54,12 @@ public class CanvasManager : MonoBehaviour
     private void Update()
     {
 
-        if (!_inGameUI.activeSelf && IsStartGeme)
+        if (!_inGameUI.activeSelf && IsStartGeme && IsGameFlow)
         {
             _menuUI.SetActive(false);
             _inGameUI.SetActive(true);
         }
-        if (!_wimIU.activeSelf&& IsWinGame)
+        if (!_wimIU.activeSelf && IsWinGame)
         {
             IsGameFlow = false;
             QuantityEnemy = 0;
@@ -82,16 +82,16 @@ public class CanvasManager : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (_progress>_progresBar.fillAmount)
+        if (_progress > _progresBar.fillAmount)
         {
             _progresBar.fillAmount += 0.01f;
-            if (QuantityEnemy<=0)
+            if (QuantityEnemy <= 0)
             {
-                if(!IsLoseGame)
-                IsWinGame = true;
+                if (!IsLoseGame)
+                    IsWinGame = true;
             }
         }
-        _rageBar.fillAmount = Mathf.Lerp(_rageBar.fillAmount, _rage,0.1f);
+        _rageBar.fillAmount = Mathf.Lerp(_rageBar.fillAmount, _rage, 0.1f);
     }
     private void AddCoin(int namber)
     {
@@ -105,11 +105,10 @@ public class CanvasManager : MonoBehaviour
         _levelnamberWin.text = "Level " + PlayerPrefs.GetInt("Level");
         _namberCoin.text = PlayerPrefs.GetInt("Coin").ToString();
     }
-
     public void Rage(float namber)
     {
         _rage = namber;
-        if (_rage == 1&& _face.color != _faceRageColor)
+        if (_rage == 1 && _face.color != _faceRageColor)
         {
             _face.color = _faceRageColor;
         }
