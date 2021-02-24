@@ -16,11 +16,14 @@ public class CanvasManager : MonoBehaviour
     [SerializeField]
     private Image _progresBar, _rageBar, _face;
     [SerializeField]
+    private Image[] _health;
+    [SerializeField]
     private Text _namberCoin, _levelNamberCurrent, _levelNamberTarget, _levelnamberWin;
     [SerializeField]
     private Color _faceRageColor;
 
     private float _progress, _addProgress, _rage;
+    private int _healthNamber;
 
     private void Awake()
     {
@@ -36,8 +39,10 @@ public class CanvasManager : MonoBehaviour
         }
 
         PlyerLife.PlayerLife.onCoinTake += AddCoin;
+        PlyerLife.PlayerLife.lossOfLife += ControlHealth;
         _addProgress = 1f / QuantityEnemy;
         TextLevel();
+        _healthNamber = _health.Length - 1;
 
         if (!IsStartGeme)
         {
@@ -58,6 +63,7 @@ public class CanvasManager : MonoBehaviour
             _menuUI.SetActive(false);
             _inGameUI.SetActive(true);
         }
+
         if (!_wimIU.activeSelf && IsWinGame)
         {
             IsGameFlow = false;
@@ -69,6 +75,7 @@ public class CanvasManager : MonoBehaviour
             _inGameUI.SetActive(false);
             _wimIU.SetActive(true);
         }
+
         if (!_lostUI.activeSelf && IsLoseGame)
         {
             IsGameFlow = false;
@@ -96,6 +103,14 @@ public class CanvasManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("Coin", PlayerPrefs.GetInt("Coin") + namber);
         _namberCoin.text = PlayerPrefs.GetInt("Coin").ToString();
+    }
+    private void ControlHealth()
+    {
+        if (_healthNamber > 0)
+        {
+            _health[_healthNamber].gameObject.SetActive(false);
+            _healthNamber--;
+        }
     }
     private void TextLevel()
     {

@@ -22,6 +22,9 @@ public class PlyerLife : MonoBehaviour
     public delegate void AddCoin(int namber);
     public event AddCoin onCoinTake;
 
+    public delegate void LossOfLife();
+    public event LossOfLife lossOfLife;
+
     private void Awake()
     {
         _materialPlayer = _meshes[0].material;
@@ -35,6 +38,7 @@ public class PlyerLife : MonoBehaviour
         {
             if (_health > 0)
             {
+                lossOfLife?.Invoke();
                 StartCoroutine(TemporaryImmortality());
             }
             else
@@ -99,7 +103,7 @@ public class PlyerLife : MonoBehaviour
         if (_rageMaterialPlayer!= _meshes[0].material)
         {
             _meshes[0].material = _rageMaterialPlayer;
-            _materialSword = _rageMaterialSword;
+            _meshes[1].material = _rageMaterialSword;
         }
     }
     public void DeactivationRage()
@@ -107,7 +111,7 @@ public class PlyerLife : MonoBehaviour
         if (_rageMaterialPlayer!= _meshes[0].material)
         {
             _meshes[0].material = _materialPlayer;
-            _materialSword = _materialSword;
+            _meshes[1].material = _materialSword;
         }
     }
 
