@@ -5195,11 +5195,47 @@ PrefabInstance:
       propertyPath: m_Size.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7377768138260572433, guid: c17729dee0400e344881806648ce832a,
+        type: 3}
+      propertyPath: _meshes.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7377768138260572433, guid: c17729dee0400e344881806648ce832a,
+        type: 3}
+      propertyPath: _meshes.Array.data[0]
+      value: 
+      objectReference: {fileID: 1838746124859285986}
+    - target: {fileID: 7377768138260572433, guid: c17729dee0400e344881806648ce832a,
+        type: 3}
+      propertyPath: _meshes.Array.data[1]
+      value: 
+      objectReference: {fileID: 8879031047483680922}
+    - target: {fileID: 7377768138260572433, guid: c17729dee0400e344881806648ce832a,
+        type: 3}
+      propertyPath: _health
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7377768138260572433, guid: c17729dee0400e344881806648ce832a,
+        type: 3}
+      propertyPath: _timeInvulnerability
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7377768138260572433, guid: c17729dee0400e344881806648ce832a,
+        type: 3}
+      propertyPath: _blinkRate
+      value: 0.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c17729dee0400e344881806648ce832a, type: 3}
 --- !u!4 &706965117753023117 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 701252432190121270, guid: c17729dee0400e344881806648ce832a,
+    type: 3}
+  m_PrefabInstance: {fileID: 32928553508077499}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1838746124859285986 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1869123053184474713, guid: c17729dee0400e344881806648ce832a,
     type: 3}
   m_PrefabInstance: {fileID: 32928553508077499}
   m_PrefabAsset: {fileID: 0}

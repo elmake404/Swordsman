@@ -5,7 +5,16 @@ using UnityEngine;
 public class PlyerLife : MonoBehaviour
 {
     public static PlyerLife PlayerLife;
+
     private List<GameObject> _ether = new List<GameObject>();
+    [SerializeField]
+    private MeshRenderer[] _meshes;
+
+    [SerializeField]
+    private int _health;
+    [SerializeField]
+    private float _timeInvulnerability, _blinkRate;
+    private bool _isInvulnerability = false;
 
     public delegate void AddCoin(int namber);
     public event AddCoin onCoinTake;
@@ -17,12 +26,19 @@ public class PlyerLife : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<Delimiter>() != null)
+        if (other.GetComponent<Delimiter>() != null && !_isInvulnerability)
         {
-            if(!CanvasManager.IsWinGame)
-            CanvasManager.IsLoseGame = true;
+            if (_health > 0)
+            {
+                StartCoroutine(TemporaryImmortality());
+            }
+            else
+            {
+                if (!CanvasManager.IsWinGame)
+                    CanvasManager.IsLoseGame = true;
 
-            Destroy(transform.parent.gameObject);
+                Destroy(transform.parent.gameObject);
+            }
         }
 
         if (other.tag == "Coin")
@@ -36,13 +52,40 @@ public class PlyerLife : MonoBehaviour
             _ether.Add(other.gameObject);
         }
     }
-    private void OnTriggerExit(Collider other)
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.gameObject.layer == 9)
+    //    {
+    //        _ether.Remove(other.gameObject);
+    //        if (_ether.Count <= 0 && !CanvasManager.IsWinGame)
+    //            CanvasManager.IsLoseGame = true;
+    //    }
+    //}
+    private IEnumerator TemporaryImmortality()
     {
-        if (other.gameObject.layer == 9)
+        Debug.Log(123);
+        _isInvulnerability = true;
+        _health--;
+        float time = _timeInvulnerability;
+        while (true)
         {
-            _ether.Remove(other.gameObject);
-            if(_ether.Count<=0&& !CanvasManager.IsWinGame)
-            CanvasManager.IsLoseGame = true;
+            for (int i = 0; i < _meshes.Length; i++)
+            {
+                _meshes[i].enabled = false;
+            }
+            yield return new WaitForSeconds(_blinkRate/2);
+
+            for (int i = 0; i < _meshes.Length; i++)
+            {
+                _meshes[i].enabled = true;
+            }
+            yield return new WaitForSeconds(_blinkRate/2);
+
+            time -= _blinkRate;
+
+            if (time <= 0)
+                break;
         }
+        _isInvulnerability = false;
     }
 }
