@@ -53,7 +53,6 @@ public class CanvasManager : MonoBehaviour
 
     private void Update()
     {
-
         if (!_inGameUI.activeSelf && IsStartGeme && IsGameFlow)
         {
             _menuUI.SetActive(false);
@@ -111,11 +110,12 @@ public class CanvasManager : MonoBehaviour
         if (_rage == 1 && _face.color != _faceRageColor)
         {
             _face.color = _faceRageColor;
+            PlyerLife.PlayerLife.ActivationRage();
         }
         else if (_rage < 1 && _face.color != Color.white)
         {
             _face.color = Color.white;
-
+            PlyerLife.PlayerLife.DeactivationRage();
         }
     }
     public void AddProgress()

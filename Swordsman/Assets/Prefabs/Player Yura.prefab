@@ -5225,6 +5225,16 @@ PrefabInstance:
       propertyPath: _blinkRate
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 7377768138260572433, guid: c17729dee0400e344881806648ce832a,
+        type: 3}
+      propertyPath: _rageMaterialPlayer
+      value: 
+      objectReference: {fileID: 2100000, guid: 030231281a1053b489e18ccd215a0112, type: 2}
+    - target: {fileID: 7377768138260572433, guid: c17729dee0400e344881806648ce832a,
+        type: 3}
+      propertyPath: _rageMaterialSword
+      value: 
+      objectReference: {fileID: 2100000, guid: cb646b6154c3e0c4dac54c9aa29ba11b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c17729dee0400e344881806648ce832a, type: 3}
 --- !u!4 &706965117753023117 stripped
