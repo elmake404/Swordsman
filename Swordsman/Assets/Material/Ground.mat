@@ -92,7 +92,7 @@ Material:
     m_Colors:
     - _BackgroundColor: {r: 1, g: 1, b: 1, a: 1}
     - _CenterColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+    - _Color: {r: 0.648, g: 0.648, b: 0.648, a: 1}
     - _ColorMain: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _GlowColor: {r: 1, g: 1, b: 1, a: 1}
