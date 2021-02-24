@@ -9,6 +9,9 @@ public class PlyerLife : MonoBehaviour
     private List<GameObject> _ether = new List<GameObject>();
     [SerializeField]
     private MeshRenderer[] _meshes;
+    [SerializeField]
+    private Material _rageMaterialPlayer, _rageMaterialSword;
+    private Material _materialPlayer, _materialSword;
 
     [SerializeField]
     private int _health;
@@ -19,8 +22,13 @@ public class PlyerLife : MonoBehaviour
     public delegate void AddCoin(int namber);
     public event AddCoin onCoinTake;
 
+    public delegate void LossOfLife();
+    public event LossOfLife lossOfLife;
+
     private void Awake()
     {
+        _materialPlayer = _meshes[0].material;
+        _materialSword = _meshes[1].material;
         PlayerLife = this;
     }
 
@@ -30,6 +38,7 @@ public class PlyerLife : MonoBehaviour
         {
             if (_health > 0)
             {
+                lossOfLife?.Invoke();
                 StartCoroutine(TemporaryImmortality());
             }
             else
@@ -63,7 +72,6 @@ public class PlyerLife : MonoBehaviour
     //}
     private IEnumerator TemporaryImmortality()
     {
-        Debug.Log(123);
         _isInvulnerability = true;
         _health--;
         float time = _timeInvulnerability;
@@ -73,12 +81,14 @@ public class PlyerLife : MonoBehaviour
             {
                 _meshes[i].enabled = false;
             }
+
             yield return new WaitForSeconds(_blinkRate/2);
 
             for (int i = 0; i < _meshes.Length; i++)
             {
                 _meshes[i].enabled = true;
             }
+
             yield return new WaitForSeconds(_blinkRate/2);
 
             time -= _blinkRate;
@@ -88,4 +98,21 @@ public class PlyerLife : MonoBehaviour
         }
         _isInvulnerability = false;
     }
+    public void ActivationRage()
+    {
+        if (_rageMaterialPlayer!= _meshes[0].material)
+        {
+            _meshes[0].material = _rageMaterialPlayer;
+            _meshes[1].material = _rageMaterialSword;
+        }
+    }
+    public void DeactivationRage()
+    {
+        if (_rageMaterialPlayer!= _meshes[0].material)
+        {
+            _meshes[0].material = _materialPlayer;
+            _meshes[1].material = _materialSword;
+        }
+    }
+
 }
