@@ -5218,12 +5218,12 @@ PrefabInstance:
     - target: {fileID: 7377768138260572433, guid: c17729dee0400e344881806648ce832a,
         type: 3}
       propertyPath: _timeInvulnerability
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7377768138260572433, guid: c17729dee0400e344881806648ce832a,
         type: 3}
       propertyPath: _blinkRate
-      value: 0.2
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7377768138260572433, guid: c17729dee0400e344881806648ce832a,
         type: 3}
