@@ -47,11 +47,13 @@ public class CanvasManager : MonoBehaviour
         if (!IsStartGeme)
         {
             FacebookManager.Instance.GameStart();
+            GAManager.Instance.GameStart();
             _menuUI.SetActive(true);
         }
         else
         {
             FacebookManager.Instance.LevelStart(PlayerPrefs.GetInt("Level"));
+            GAManager.Instance.LevelStart(PlayerPrefs.GetInt("Level"));
             IsGameFlow = true;
         }
     }
@@ -69,6 +71,7 @@ public class CanvasManager : MonoBehaviour
             IsGameFlow = false;
             QuantityEnemy = 0;
             FacebookManager.Instance.LevelWin(PlayerPrefs.GetInt("Level"));
+            GAManager.Instance.LevelWin(PlayerPrefs.GetInt("Level"));
 
             PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
             PlayerPrefs.SetInt("Scenes", PlayerPrefs.GetInt("Scenes") + 1);
@@ -81,6 +84,7 @@ public class CanvasManager : MonoBehaviour
             IsGameFlow = false;
             QuantityEnemy = 0;
             FacebookManager.Instance.LevelFail(PlayerPrefs.GetInt("Level"));
+            GAManager.Instance.LevelFail(PlayerPrefs.GetInt("Level"));
 
             _inGameUI.SetActive(false);
             _lostUI.SetActive(true);
